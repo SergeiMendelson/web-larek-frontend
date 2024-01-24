@@ -6,6 +6,13 @@ html, body.page {
 	font-size: $baseFontSize;
 	color: $baseFontColor;
 	background: $background;
+	&.no-scroll {
+		overflow: hidden;
+	}
+}
+
+.global-hidden {
+	display: none !important;
 }
 
 .page__wrapper {
