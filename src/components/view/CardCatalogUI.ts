@@ -39,7 +39,7 @@ export class CardCatalogUI {
 		buttonText: string,
 		onButtonClick: (product: Product) => void
 	): void {
-		const card = document.createElement('button');
+		const card = document.createElement('div');
 		card.classList.add('card', 'card_full');
 		card.innerHTML = `
 			<img class="card__image" src="${CDN_URL}/${product.image}" alt="" />

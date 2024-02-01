@@ -6,15 +6,15 @@ import {
 	CATALOG_CONTAINER_SELECTOR,
 	MODAL_CONTAINER_ID,
 } from './utils/constants';
-import { CardCatalogFullModal } from './components/modals/CardCatalogFullModal';
 import { EventEmitter } from './components/base/events';
 import { CartIndicatorUI } from './components/view/CartIndicatorUI';
 import { CatalogUI } from './components/view/CatalogUI';
 import { Products } from './components/model/Products';
 import { Cart } from './components/model/Cart';
-import { CartModal } from './components/modals/CartModal';
-import { OrderModal } from './components/modals/OrderModal';
-import { SuccessModal } from './components/modals/SuccessModal';
+import { CardCatalogFullModal } from './components/model/modals/CardCatalogFullModal';
+import { CartModal } from './components/model/modals/CartModal';
+import { OrderModal } from './components/model/modals/OrderModal';
+import { SuccessModal } from './components/model/modals/SuccessModal';
 
 const api = new Api(API_URL);
 const eventEmitter = new EventEmitter();

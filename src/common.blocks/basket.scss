@@ -5,11 +5,13 @@
   @include mixins.flex(column);
   gap: 2rem;
   height: 100%;
+  margin-bottom: 4rem;
 
   &__list {
     padding: 0;
     margin: 0;
     flex-grow: 1;
+    margin-bottom: 4rem;
   }
 
   &__item {

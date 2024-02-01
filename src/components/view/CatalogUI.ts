@@ -1,5 +1,5 @@
 import { Product } from '../../types';
-import { CardCatalogUI } from './CardCatalogUI';
+import { renderCard } from './CardCatalogUIHelpers';
 import { PriceUI } from './PriceUI';
 
 export class CatalogUI {
@@ -13,7 +13,7 @@ export class CatalogUI {
 	): void {
 		const container = this.container;
 		products.forEach((product) => {
-			CardCatalogUI.renderCard(product, container, PriceUI.renderPrice, () => {
+			renderCard(product, container, PriceUI.renderPrice, () => {
 				openModal(product);
 			});
 		});

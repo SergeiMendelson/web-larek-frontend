@@ -121,32 +121,15 @@ export interface Products {
 }
 ```
 
-### Modal
-
-Класс Modal предоставляет интерфейс для работы с модальными окнами. Позволяет открывать и закрывать модальные окна. Слушает события
-
-```ts
-export interface Modal {
-	modalContainerId: string;
-	modalContainer: Element;
-	eventEmitter: EventEmitter;
-
-	constructor(modalContainerId: string, eventEmitter: EventEmitter);
-
-	openModal(): void;
-
-	closeModal(): void;
-}
-```
-
 ### CardCatalogFullModal
 
-Класс CardCatalogFullModal предоставляет интерфейс для работы с модальным окном карточки товара. Позволяет открывать и закрывать модальное окно, а также слушает события
+Класс CardCatalogFullModal предоставляет интерфейс для работы с модальным окном карточки товара. Работает с данными расширенной карточки товара, дает возможность добавить ее в корзину либо удалить из корзины
 
 ```ts
 
-class CardCatalogFullModal extends Modal {
+class CardCatalogFullModal {
 	isItemInCart: boolean;
+	modal: Modal;
 
 	constructor(
 		modalContainerId: string,
@@ -159,13 +142,15 @@ class CardCatalogFullModal extends Modal {
 ### CartModal
 
 Класс CartModal предоставляет интерфейс для работы с модальным окном корзины.
+Работает с данными корзины
 Здесь мы рендерим корзину с помощью класса CartUI и передаем в нее список товаров в корзине.
 Также при удалении товара из корзины мы обновляем индикатор с помощью класса CardIndicatorUI (вызываем событие). 
 
 
 ```ts
 
-class CartModal extends Modal {
+class CartModal {
+	modal: Modal;
 	cart: Cart;
 
 	constructor(
@@ -186,12 +171,13 @@ class CartModal extends Modal {
 
 ```ts
 
-class OrderModal extends Modal {
+class OrderModal {
 	activeButton: { idx: number | null };
 	deliveryInput: { value: string };
 	emailInput: { value: string };
 	phoneInput: { value: string };
 
+	modal: Modal;
 
 	cartItems: Product[] = [];
 
@@ -205,8 +191,9 @@ class OrderModal extends Modal {
 
 ```ts
 
-class SuccessModal extends Modal {
+class SuccessModal {
 	cartItems: Product[];
+	modal: Modal;
 
 	constructor(modalContainerId: string, eventEmitter: EventEmitter)
 }
@@ -218,9 +205,27 @@ class SuccessModal extends Modal {
 Мы бы получили от базового класса бенефит в виде одного поля - container, это не критично
 
 
-### CardCatalogUI (all methods are static)
+### Modal
 
-Класс CardCatalogUI предоставляет интерфейс для работы с UI карточки товара. Позволяет отрисовывать карточку товара
+Класс Modal предоставляет интерфейс для работы с модальными окнами. Позволяет открывать и закрывать модальные окна. Слушает события
+
+```ts
+export interface Modal {
+	modalContainerId: string;
+	modalContainer: Element;
+	eventEmitter: EventEmitter;
+
+	constructor(modalContainerId: string, eventEmitter: EventEmitter);
+
+	openModal(): void;
+
+	closeModal(): void;
+}
+```
+
+### CardCatalogUI (not a class, just functions)
+
+Набор функций - CardCatalogUI предоставляет функции для работы с UI карточки товара. Позволяет отрисовывать карточку товара
 
 ```ts
 export interface CardCatalogUI {

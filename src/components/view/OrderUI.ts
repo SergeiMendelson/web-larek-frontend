@@ -1,5 +1,4 @@
 import { Product } from '../../types';
-import { CardCatalogUI } from './CardCatalogUI';
 import { PriceUI } from './PriceUI';
 
 export class OrderUI {
@@ -63,6 +62,7 @@ export class OrderUI {
 					button.addEventListener('click', () => {
 						onButtonClick(idx);
 						renderButtons();
+						checkSubmitButton();
 					});
 					if (activeButton.idx === idx) {
 						button.classList.add('button_alt-active');

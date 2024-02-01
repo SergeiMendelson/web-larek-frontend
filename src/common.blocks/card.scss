@@ -16,6 +16,11 @@
     .card__title {
       flex-grow: 0;
     }
+
+    .card__image {
+      margin: 0;
+      margin-right: 3.75rem;
+    }
   }
 
   &_compact {

@@ -1,7 +1,7 @@
 import { Events } from '../../types';
 import { EventEmitter } from '../base/events';
 import { MODAL_CLOSE_SELECTOR } from '../../utils/constants';
-// todo: make factory
+
 export class Modal {
 	modalContainerId: string;
 	modalContainer: Element;
